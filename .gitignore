@@ -1,0 +1,55 @@
+# Frontend Dependency Folders
+node_modules/
+/frontend/node_modules/
+
+# Production Build Directories
+dist/
+/frontend/dist/
+dist-ssr/
+*.local
+
+# Secret Configuration Files
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+*.env
+
+# Compiled Go Binary Executables & Packages
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/backend/main
+/backend/server
+/backend/main.exe
+/backend/server.exe
+
+# IDE, Editor, and Toolchain Cache Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.eslintcache
+.project
+.classpath
+
+# Operating System Temp Files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Agent / Diagnostic Logs
+.gemini/
+/artifacts/
+
+# Local Go SDK Distribution
+/go/

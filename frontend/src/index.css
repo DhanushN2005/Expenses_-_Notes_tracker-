@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    background-image: 
+      radial-gradient(at 0% 0%, var(--accent-glow) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, var(--accent-glow) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* ==========================================================================
+   THEME DECLARATIONS: Curated Elegant Palettes with Ambient Accents
+   ========================================================================== */
+
+/* 1. Deep Indigo (Default Sleek Dark Space Theme) */
+.theme-dark-indigo {
+  --bg-main: #030712;
+  --bg-sidebar: #0b0f19;
+  --bg-card: rgba(17, 24, 39, 0.45);
+  --bg-card-hover: rgba(31, 41, 55, 0.65);
+  --border-color: rgba(55, 65, 81, 0.4);
+  --border-hover: rgba(99, 102, 241, 0.5);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-glow: rgba(99, 102, 241, 0.08);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --accent-secondary: #a855f7;
+}
+
+/* 2. Emerald Mint (Deep Forest Modern Theme) */
+.theme-dark-emerald {
+  --bg-main: #022c22;
+  --bg-sidebar: #064e3b;
+  --bg-card: rgba(6, 78, 59, 0.35);
+  --bg-card-hover: rgba(6, 95, 70, 0.55);
+  --border-color: rgba(4, 120, 87, 0.4);
+  --border-hover: rgba(16, 185, 129, 0.5);
+  --text-main: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.08);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --accent-secondary: #06b6d4;
+}
+
+/* 3. Cyber Rose (Vibrant Cyber-Synth Mode) */
+.theme-dark-rose {
+  --bg-main: #0f0510;
+  --bg-sidebar: #1d0a1b;
+  --bg-card: rgba(45, 10, 36, 0.35);
+  --bg-card-hover: rgba(76, 12, 57, 0.55);
+  --border-color: rgba(136, 19, 93, 0.4);
+  --border-hover: rgba(244, 63, 94, 0.5);
+  --text-main: #fff1f2;
+  --text-muted: #fecdd3;
+  --accent: #f43f5e;
+  --accent-hover: #e11d48;
+  --accent-glow: rgba(244, 63, 94, 0.08);
+  --accent-gradient: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+  --accent-secondary: #ec4899;
+}
+
+/* 4. Alabaster Light (Ultra-clean Light Workspace Theme) */
+.theme-light-modern {
+  --bg-main: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(226, 232, 240, 0.8);
+  --border-hover: rgba(59, 130, 246, 0.5);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.05);
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --accent-secondary: #06b6d4;
+}
+
+/* ==========================================================================
+   GLOBAL TRANSITIONS & MICRO-EFFECTS
+   ========================================================================== */
+
+* {
+  transition-property: background-color, border-color, text-decoration-color, fill, stroke, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+/* Custom scrollbars for notes board */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Premium glassmorphic backdrop filter effects */
+.glass-effect {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4), 0 0 15px 0 var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* Premium animated neon borders */
+.glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, var(--accent) 50%, transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+.glow-effect:hover::after {
+  opacity: 0.8;
+  animation: glow-rotate 3s linear infinite;
+}
+
+@keyframes glow-rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Floating animated background blobs */
+.bg-blob-animate {
+  animation: blob-float 12s ease infinite alternate;
+}
+
+.bg-blob-animate-delayed {
+  animation: blob-float 16s ease infinite alternate-reverse;
+}
+
+@keyframes blob-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: blur(80px);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.15);
+    filter: blur(90px);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    filter: blur(70px);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    filter: blur(80px);
+  }
+}
+
+/* Interactive card active click state */
+.btn-interactive:active {
+  transform: scale(0.96);
+}
+
+.card-interactive:active {
+  transform: scale(0.995) translateY(-1px);
+}
